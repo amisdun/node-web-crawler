@@ -2,7 +2,7 @@ const ExchangeRate = require("../models/ExchangeRate");
 
 const convertCurrency = async (amount, currency) => {
   let data = {};
-  if (!amount && !currency) {
+  if (!amount || !currency) {
     data = ExchangeRate.find({}).select(["-_id", "-date"]);
     return data;
   }
